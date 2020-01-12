@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./css/index.css">
     <title>Document</title>
 </head>
+
 <body>
     <p>js特点</p>
     <p><span>创建对象</span></p>
@@ -20,5 +22,18 @@
     <p><span>call</span></p>
     <p><span>apply</span></p>
     <p><span>bind</span></p>
+    <script>
+        let res = {
+            // path:'1111',
+        };
+
+        if (res.data) {
+            localStorage['data'] = res.data;
+        } else if (res.path) {
+            localStorage['path'] = res.path;
+        } else  {            console.log('上传失败');
+        }
+    </script>
 </body>
+
 </html>

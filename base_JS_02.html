@@ -26,6 +26,270 @@
     <p><span>操作字符串的方法</span></p>
 </body>
 <script>
+    // 对象: 是由属性和方法构成的; 它是由键值对组成的; 键值对的组合
+    //访问方式 1 对象.键 值    2使用中括号的方式;
+    // 对象 他就是用来描述一个物体的  万物皆对象
+    //  刘月  :  年龄 漂亮 性别 年轻  ..... 
+    //          吃..... 打篮球 .... ;
+    // 属性  它是用来描述一个对象的;
+    // 方法  是用来执行一个函数  以达到某种目的;
+    // 第一种 创建对象的方法
+    // let obj =  {
+    //     name:'刘月',
+    //     age:18,
+    //     setName:function(name){
+    //         console.dir(this)
+    //         this.name = name;
+    //         return name;ssex
+    //     }
+    // };
+    // 访问属性的方式 1  obj.name   2 obj['name']  
+    // console.log(obj);
+    // 如果中括号带引号的 话     就是去查找obj 里面的 name 属性
+    // console.log(obj['name']);
+    // k 代表对象的键
+    // for(let k in obj){
+    // console.log(k);
+    // 第一次循环 k = name;
+    // 如果中括号里面不带引号的话  他就回去寻找 k 变量 代表的话值 也就是name  然后再去寻找 obj的name属性;
+    // console.log(k+'===='+  obj[k]);
+    // }
+
+    // 第二种创建对象的方法 利用js提供的 object对象
+    // let obj = new Object();  //这时候obj是一个空对象
+
+    // obj.name = '刘月';  
+    // obj.age = 18;
+    // obj.setName = function(){
+
+    // }
+    // console.log(obj);
+
+    // 第三种
+    // function setObject(name,age,sex){
+    //     let obj  = new Object();
+    //     obj.name  = name;
+    //     obj.age = age;
+    //     obj.sex = sex;
+    //     obj.setName = function(){
+
+    //     };
+    //     return obj
+    // }
+    // let obj = setObject('刘月','18','女');
+    // let obj1 = setObject('原文杰','18','男');
+    // 第四种 借用构造函数 帕斯卡命名法(首字母大写; 后面单词首字母大写 PersionSetAge)
+    // 驼峰命名法 首字母小写  后面单词首字母大写  persionSetAge
+    // function Persion(name, age, sex) {
+    //     this.name = name;
+    //     this.age = age;
+    //     this.sex = sex;
+    //     this.setName = function(){};
+    // }
+    // let obj = new Persion('刘月','18','女');
+    // let obj2 = new Persion('原文杰','20','男');
+    // console.log(obj);
+    // console.log(obj2);
+
+    // new 关键字的做了什么 
+    // 1 在内存中新开辟一个空间   
+    // 2 让this关键字指向这构造函数
+    // 3 给这个实例对象创建属性和方法  当然你也可以干别的
+    // 4 返回这个对象实例
+
+    // this指向
+    // 全局作用域中 this指向 window
+    // 普通函数调用中 this指向的也是window
+    // 在对象 的方法调用中 this指向的obj;
+    // 在构造函数中  this指向构造函数;
+
+    // console.log(this);
+    // let obj = {
+    //     set:function(){
+    //         console.log(this)
+    //     }
+    // };
+    // obj.set()
+    // function fn() {
+    //     console.log(this);
+    //     setTimeout(function () {
+    //         console.log(this);
+    //     }, 0)
+    // }
+    // function Persion() {
+    //     console.log(this)
+    // }
+    // let obj = new Persion() 
+
+    // function setObj(name, age, beautiful) {
+    //     // 创造了一个空对象   // 就是在内存中开辟了一个空间
+    //     let obj = new Object();
+    //     obj.name = name;
+    //     obj.age = age;
+    //     obj.setName = function () {
+    //         // console.dir(this);
+    //     }
+    //     obj.setName();
+    //     return obj
+    // }
+    // let obj = setObj('刘月', '18', '漂亮');
+    // console.log(obj)
+    // 构造函数  ===>用来创造对象的;
+    // function GetObj(name,age){
+    //     this.name = name;
+    //     this.age = age;
+    //     function setName(name){
+    //         this.name = name;
+    //     }
+    // };
+    //  obj是 通过构造函数 GetObj 创造出来的实例对象;
+    // let obj = new GetObj('刘月',18);
+    // console.log(obj);
+
+    // let obj = {
+    //     name:'刘月',
+    //     age:18,
+    // }
+
+    // function callBackFn(object){
+    //     object.name = '原文杰';
+    //     // console.log(object);
+    //     // new Object
+    //     object = {};  //重新定义了一个对象  // 又重新开辟了一个新的空间
+    //     object.name_object = '刘月';
+    //     console.log(object);
+
+    // };
+    // callBackFn(obj);
+    // console.log(obj);
+
+    // js 组成  js语言核心  bom  dom
+    // 内置对象   js提供的对象  Math || Date || Array
+    // 1 内置对象 Math;  是关于数学运算方面的一些方法
+    // 更多方法 可以查询  MDN  
+    // console.dir(Math);
+    // console.log(Math.abs(-11));  // Math.abs  去一个数字的绝对值  11
+    // Math.round()  四舍五入
+    // console.log(Math.round(2.6))
+    // Math.random   求一个随机数  取值范围在<不包括> 0 - 1;
+    // console.log(Math.random());
+    // Math.max   接受多参数 如果不是数字类型  会转换成数字类型  并返回  参数中最大的哪一个;
+    // console.log(Math.max(1,2,4,7,20,5,'28'));
+    // Math.min  和max相同    返回的是最小的那一个
+    // console.log(Math.min(1,2,4,7,20,5,'28'));
+    // Math.floor 向下取整 舍弃小数部分  保留整数部分
+    // console.log(Math.floor(3.65));
+    // Math.ceil 向上取整 进一法. 
+    // console.log(Math.ceil(3.1))
+    // random  求 100 - 200之间的随机数
+    // let a = Math.floor(Math.random() * 100);
+    // let b = Math.floor(Math.random() * 200);
+    // console.log(Math.floor(Math.random()*(200-100)) + 100)
+    // console.log(Math.random(3))
+
+    // Date   new Date 获取关于时间 
+    // let date =new Date();   //   没有参数 获取的是当前时间 
+    // console.log(date);
+    // console.log(Number(date));
+    // console.log(date.getFullYear());  // Math.getFullYear 获取指定日期的年份
+    // console.log(date.getMonth() + 1); //date.getMonth() 获取指定日期的月份   从0开始的
+    // console.log(date.getDate());   //date.getDate() 获取指定日期的天 <几号>
+    // console.log(date.getHours()); //date.getHours()  获取指定日期的 小时数
+    // console.log(date.getMinutes());  //date.getMinutes()  获取指定日期的 分钟
+    // console.log(date.getSeconds());  //date.getSeconds() 获取指定日期的秒
+    //    new Date(2008, 10, 5);  可以获取指定日期
+    // let date2 = new Date(1970, 0, 0);
+    // console.log(date - date2);
+    // console.log(date.valueOf());
+    // console.log(+date2);
+
+    // let d1 = new Date();  //获取的是当前时间
+    let d2 = new Date(2019, 0, 6, 21, 0, 0);  //获取的是 2020年1月8号  21点 00 00 的时间
+    // d1 = d1.valueOf();  //  将获取到的时候 转换成毫秒值
+    // d2 = d2.valueOf()   //将获取到的时候 转换成毫秒值
+    // // console.log(d1);
+    // console.log(d2);
+    // (new Date()) - d2;
+    // console.log(d3);
+
+    // console.log(hours);
+    // console.log(minute);
+    // console.log(seconds);
+
+    // setInterval(() => {
+    //     let hours = Math.floor(((+new Date()) - d2) / 1000 / 60 / 60 / 24);  //获取相差小时
+    //     let minute = Math.floor(((+new Date()) - d2) / 1000 / 60 % 60);       //获取相差多少分钟
+    //     let seconds = Math.floor(((+new Date()) - d2) / 1000 % 60);       //获取相差多少秒
+    //     console.log(hours, minute, seconds)
+    // }, 1000)
+
+    let arr = [1, 6, 9, 10, 2, 3, 4];
+    let arr1 = new Array(1, 2, 3, 4);
+    // console.log(arr);
+    // console.log(arr1);
+    // 操作数组的方法
+    // push  pop shift unshift  reverse sort splice  map forEach 
+    // console.log(arr.push('10'))  // push 向数组的末尾添加成员  返回的是新数组的长度
+    // console.log(arr)
+    // console.log(arr.pop())  //    返回的是删除的 那个成员  
+    // console.log(arr)      // 删除数组的最后一个元素
+    // console.log(arr.shift());  //返回删除的那个元素  
+    // console.log(arr)            // 删除数组的第一个成员
+    // console.log(arr.unshift(1)) // 返回的 是新数组的长度
+    // console.log(arr)     // 在数组的开头添加元素;
+    // reverse  
+    // console.log(arr.reverse())   //反转数组   它返回的 改变后的数组
+    // console.log()   
+    // 从大到小 进行排序   从小到大 a- b
+    // arr.sort(function (a, b) {
+    //     return b - a;
+    // });
+    // console.log(arr);e
+    // console.log(arr.splice(2, 1));
+    // console.log(arr);
+    // let newArr = arr.map((i) => {
+    //     return i > 10 ? i : '';
+    // })
+    // console.log(newArr);
+    // let arr4 = ['a', 'b', 'c', 'h', 'a', 'o', 'z', 'a']
+    // console.log(arr4);
+    // // console.log(arr4.indexOf('a'));
+    // // console.log(arr4.lastIndexOf('a'));
+    // let arr9 = arr.concat(arr4, 0);  //concat 拼接数组  返回一个新数组
+    // console.log(arr9);
+
+    // let obj = {
+    //     name: '刘月',
+    //     age: '19',
+    //     sex1 :'女'
+    // };
+    // let obj2 = {
+    //     name1: '原文杰',
+    //     age :  '20',
+    //     sex:'男'
+    // };
+    // Object.assign(obj,obj2,{color:'white',age:'21'});  // 把第二个参数之后的有所的属性和方法合并给第一个
+    // console.log(obj);
+    // console.log(Object.is(NaN, NaN));  // 判断两个值 是否完全相等   NaN不等于NaN
+    // console.log(Object.is(-0, +0));  // 判断两个值 是否完全相等  正0 不等于 负0
+
+    // let obj = {
+    //     name:'刘月',
+    //     age:'18',
+    //     sex:'女',
+    // }
+    // obj['aa'] = 'bb';
+    // delete obj.aa;
+    // console.log(obj);
+    // console.dir(Object);
+
+    // let str = 'aaa';
+    // console.dir(str.length);
+    // let aa = str.length;
+    // console.log(aa)
+
+
+
 </script>
 
 </html>
