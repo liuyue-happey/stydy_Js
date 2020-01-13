@@ -11,21 +11,67 @@
 
 <body>
     <p><span>对象( 概念 || 创建方法 || 访问 )</span></p>
+    <!--    
+        对象的概念  它是由键值对组成的 
+        对象的创建方法 4种方法  
+        1 obg={} 
+        2 new Object; obj.[]= ;
+        3 通过函数 返回(函数内部new Object  然后将创建的对象返回) 
+        4 通过自定义的构造函数
+     -->
     <p><span>new关键字</span></p>
+<!-- new 关键字
+     1 在内存中开辟了一个空间
+     2 将this关键字 指向这个new出来的函数
+     3 设置实例对象的属性和方法 <也可以做别的>
+     4 返回这个实例对象
+   -->
     <p><span>this指向</span></p>
+    <!-- 
+        全局作用域中  this  =>  window
+        函数调用的时候  this => window
+        调用对象的方法的时候    this => 这个对象
+        在构造函数中   this  =>  构造函数
+     -->
     <p><span>操作对象</span></p>
     <hr>
     <p><span>数据类型</span></p>
     <p>数据类型的储存</p>
+
     <p>js组成</p>
+    <!-- js  语言核心  DOM BOM -->
     <p><span>内置对象</span></p>
-    <p><span>Math || Date || Array</span></p>
+    <p><span>Math || Date || Array || 正则对象</span></p>
+    <!-- 
+        Math  random max min floor  ceil  round abs 
+        date  new Date()  //他是一个构造函数  返回一个时间
+     -->
     <p>静态成员和实例成员</p>
+    <!-- Math 静态成员 -->
+    <!-- .通过动态添加的  对象的属性或者方法 都是动态成员 -->
     <p>数组</p>
+
     <p><span>操作数组的方法</span></p>
+    <!-- 
+        push  pop  shift unshift  
+        splice split sort  concat join 
+        indexOf
+        lastIndexOf
+     -->
     <p><span>操作字符串的方法</span></p>
+     <!-- 
+        split
+        concat 
+        indexOf
+        lastIndexOf
+        
+     -->
 </body>
 <script>
+    function fun(){
+        console.log(this)  //指向window
+    }
+    fun()
     // 对象: 是由属性和方法构成的; 它是由键值对组成的; 键值对的组合
     //访问方式 1 对象.键 值    2使用中括号的方式;
     // 对象 他就是用来描述一个物体的  万物皆对象
