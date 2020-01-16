@@ -1,18 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
-        *{
+        p {
             text-align: center;
+            user-select: none;
+            padding: 0;
+            margin: 0;
         }
     </style>
     <title>Document</title>
 </head>
+
 <body>
-    <p>交换两个变量的值</p>
-    
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
 </body>
+<script>
+    
+    const ps = document.getElementsByTagName('p');
+    console.log(ps);
+    //i++    i = i+1   i+2 = 3
+    // 第一轮  首次循环
+    // let i = 0 定义了一个变量i 并且赋值0;
+    // i<ps.length  如果判断条件为true 就执行for循环体
+    // 如果为false;就终止循环
+    //第二轮循环
+    // 进行自增操作 i= i+2     i = 3;   i + 2
+    //  i < ps.length  再进性循环判断条件语句  如果为true  就继续执行循环体的代码;
+    // 如果为false;就终止循环;
+
+
+    //   let i 定义变量  循环执行条件   //是一个自增语句
+    // i++    i= i+1
+    //0
+    for (let i = 0; i < 10; i = i + 2) {
+
+        console.log(ps[i]);
+
+        ps[i].style.backgroundColor = 'red';
+
+    }
+</script>
+
 </html>

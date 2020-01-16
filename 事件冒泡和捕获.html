@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>事件冒泡和捕获</title>
+    <style>
+        div#one {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            border-radius: 5px;
+            /* 设置圆角 */
+            /* margin: 50px auto; */
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        div#two {
+            width: 200px;
+            height: 200px;
+            background-color: blanchedalmond;
+            border-radius: 5px;
+            /* 设置圆角 */
+            margin: 50px auto;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        div#three {
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            border-radius: 5px;
+            /* 设置圆角 */
+            margin: 50px auto;
+            cursor: pointer;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="one">
+        <div id="two">
+            <div id="three">
+                <!-- <a href="https://www.baidu.com/?tn=06074089_18_pg&ch=7" id="a">嘿嘿</a> -->
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const one = document.getElementById('one');
+    const two = document.getElementById('two');
+    const three = document.getElementById('three');
+    // const a = document.getElementById('a');
+    // 阻止a链接的默认行为
+    // a.onclick = function (e) {
+    //     console.log('我是a标签');
+    //     e.stopPropagation();  //阻止冒泡
+    //     // 阻止事件冒泡
+    //     // return false
+    //     e.preventDefault()  //阻止元素的默认行为的
+    // };
+    // 事件冒泡
+    one.onclick = function () {
+        console.log('我是外层的div');
+    };
+    two.onclick = function (e) {
+        console.log('我是中间的div');
+        // 阻止事件冒泡
+    };
+    three.onclick = function (e) {
+        console.log('我是内层的div');
+        // 阻止事件冒泡
+        e.stopPropagation();
+    };
+</script>
+
+</html>

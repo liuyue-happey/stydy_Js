@@ -1,31 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/index.css">
     <title>Document</title>
+    <style>
+        div {
+            text-align: center;
+            line-height: 100px;
+            width: 200px;
+            height: 100px;
+            border-radius: 5px;
+            background-color: red;
+            cursor: pointer;
+            margin: 0 auto;
+
+        }
+
+        input#input {
+            border: solid 1px gray;
+        }
+
+        input#input:focus {
+            outline: none;
+            border: solid 1px gray;
+        }
+
+        .color {
+            color: honeydew;
+            font-weight: 600;
+        }
+    </style>
 </head>
+
 <body>
     <p><span>获取DOM元素</span></p>
     <p><span>获取DOM元素的其他方式</span></p>
+    <!-- id name className tagName querySelect -->
     <p><span>事件( 事件三要素 )</span></p>
+    <!-- 事件源  事件名称  事件处理函数 -->
     <p>点击切换图片</p>
+    <!--  -->
     <p>---------------操作DOM属性---------------<p>
-    <p><span>获取/更改元素的属性</span></p>
-    <p>设置元素的css属性</p>
-    <p>取消元素的默认行为</p>
-    <p>innerText和innerHTML的区别</p>
-    <p><span>表单元素/非表单元素</span></p>
-    <p>设置和获取input的值</p>
-    <p><span>表单元素 ( 登陆验证 )</span></p>
-    <p>设置下拉框的选中项(随机选中)</p>
-    <p>使用js模拟input的placeholder属性</p>
-    <p></p>
-    <p><span>自定义属性</span></p>
-    <p>---------------操作DOM样式---------------<p>
-    <p><span>通过类样式</span></p>
-    <p><span>通过行内样式</span></p>
+            <p><span id="span">获取/更改元素的属性</span></p>
+            <!--  -->
+            <p>设置元素的css属性</p>
+            <!-- Ele.style.属性名 ="宽高px" -->
+            <p>取消元素的默认行为</p>
+            <p>innerText和innerHTML的区别</p>
+            <!--  innerText  不能识别 标签   innerHTML 识别标签   -->
+            <p><span>表单元素的属性/非表单元素的属性</span></p>
+            <!-- id class title 
+                value select ...
+            -->
+            <p>设置和获取input的值</p>
+            <p><span>表单元素 ( 登陆验证 )</span></p>
+            <p>设置下拉框的选中项(随机选中)</p>
+            <p>使用js模拟input的placeholder属性</p>
+            <p>全选和反选</p>
+            <p><span>自定义属性</span></p>
+            <p>---------------操作DOM样式---------------<p>
+                <!-- 类样式通过添加;类名
+                    行内样式  就是修改行内样式属性
+                -->
+                    <p><span>通过类样式</span></p>
+                    <p><span>通过行内样式</span></p>
 </body>
+<script>
+    // 获取dom元素的 方法
+    //通过id获取元素  得到的是获取的元素
+    // let div = document.getElementById('div_id');
+    // // console.dir(div)  // HTML Div Element
+    // // 通过类名进行获取  返回的是符合查询条件的  元素集合
+    // let class_div = document.getElementsByClassName('div_class');
+    // // console.dir(class_div);  //HTML Collection
+    // // 通过元素的name属性进行获取  返回的是 符合查询条件的 元素的 集合
+    // let div_name = document.getElementsByName('div_name');
+    // // console.log(div_name);
+    // // 通过标签名进行获取  返回的是 标签元素的集合
+    // let divs = document.getElementsByTagName('div');
+    // // console.log(divs);
+    // // 返回符合查询条件的第一个元素
+    // let Qdiv = document.querySelector('.div_class');
+    // // console.log(Qdiv);
+    // // 返回的是所有符合条件的元素   是一个标签集合 
+    // let Qdivs = document.querySelectorAll('.div_class');
+    // // console.log(Qdivs);
+    // // 操作DOM元素
+
+    // let div = document.getElementById('div_id');
+    // 事件的三要素  事件源  事件名称  事件的处理函数;
+    /*
+        事件源 : 谁触发的事件   触发事件的 元素;
+        事件名称 : onclick onmouseenter onmouseleave ...
+        时间的处理函数 : 触发事件时  要进行的下一步操作  点击/鼠标进入.. 要干什么事
+    */
+    // div.onclick = function () {
+    //     //  事件函数中 this指向的是事件源 也就是谁出发的事件
+    //     console.log(this);
+    //     console.log('onclick');
+    // };
+    // div.onmouseenter = function () {
+    //     // console.log('onmouseenter');
+    // }
+    // div.onmouseleave = function () {
+    //     // console.log('onmouseleave');
+    // }
+    // div.onmousemove = function () {
+    //     // console.log('onmousemove');
+    // };
+    // 箭头函数
+    /*
+        箭头函数不改变函数体内部this的指向  外部this指向谁   箭头函数内部的this就指向谁
+        箭头函数 不可以使用 arguments  伪数组  实参列表集合  可以使用rest参数替代
+        箭头函数 不能当作构造函数来使用
+        箭头函数都是 匿名函数
+    */
+    // div.onclick = () => {
+    //     console.log(this);
+    // }
+    // let fun1 = (...rest) => {
+    //     console.log(rest)
+    // };
+    // fun1('刘月',19,'女')
+    // https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3381573685,1866477444&fm=26&gp=0.jpg;
+    // let imgSwitch = true;
+    // let link = document.getElementById('link');
+    // let img = document.getElementById('img');
+    // let div = document.getElementById('div');
+    // console.log(div.innerText);
+    // console.log(div.innerHTML);
+    // div.onclick = function () {
+
+    //     div.innerText = '我是一个div<strong>我是一个strong标签</strong>';
+    //     console.log(div.innerText);
+
+    //     // setTimeout(() => {
+    //     //     div.innerHTML = '我是一个div<strong>我是一个strong标签</strong>'
+    //     // },4000);
+    // }
+
+    // img.onclick = () => {
+    //     if (imgSwitch) {
+    //         img.src = 'https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3381573685,1866477444&fm=26&gp=0.jpg';
+    //         imgSwitch = false;
+    //     } else {
+    //         img.src = 'https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3209370120,2008812818&fm=26&gp=0.jpg';
+    //         imgSwitch = true;
+    //     }
+    //     img.title = '你点击我了,并且还不走';
+    //     // img.style.border= 'solid 2px red';
+    //     // img.style.textAlign = 'center';
+    //     console.dir(img);
+    // };
+    // // 阻止a连接的默认行为 ???
+    // link.onclick = function () {
+    //     console.log(11)
+    //     return false
+    // }
+
+    const attribute = document.getElementById('attribute');
+    console.dir(attribute);
+    console.log(attribute.dataset.index);
+    /**
+        获取自定义属性  getAttribute('属性名');  //也可以通过点的方式获取  因为元素本身是一个对象
+        设置自定义属性  setAttribute('属性名','值');
+        移除自定义属性  removeAttribute('属性名')
+    */
+    attribute.setAttribute('data-index', '我被重新赋值了');
+    attribute.removeAttribute('data-index');
+    attribute.onclick = () => {
+        // 通过className 给元素添加类样式
+        // attribute.className = 'color';
+        attribute.style.color = 'black';
+        attribute.style.fontWeight = 600;
+    }
+
+
+
+    // const input = document.getElementById('input');
+    // console.log(input.value)  //获取input的值 其实就是获取它的value属性
+    // 登陆验证  内容:  用户有没有输入内容   去空格 账号登陆长度 ... 
+    /*
+      输入手机号的 =>
+      email =>...
+    */
+    // const select = document.getElementById('select');  //获取元素
+    // id 不行  id只能通过 document.getElementById
+    // options = select.getElementsByTagName('option');
+    // console.log(options);
+    // 随机给其中一个option 一个默认的选中项    0-1  0  - 5
+    // let randomNum = Math.floor(Math.random()*options.length);
+    // console.log(randomNum);
+    // 给随机的一个options 设置selected  属性
+    // options[randomNum].selected = true;
+
+    // onfocus 当input 获取焦点时候出发  当input的光标存在的时候触发
+    // input.onfocus= function(){
+    //     console.log('我获取焦点了');
+    //     this.style.border = 'solid 1px blue'
+    // }
+    // onblur 当input 失去焦点的时候触发   当光标有显示到消失的 时候触发
+    // input.onblur = function(){
+    //     console.log('我失去焦点了');
+    //     this.style.border = 'solid 1px gray'
+    // }
+    // inpput 的值发生改变
+    // input.onchange = function(){
+    //     console.log(this.value)
+    // }
+    // 键盘按下事件
+    // input.onkeydown=function(e){
+    //     console.log('键盘按下',e)
+    // }
+    // 键盘弹起   手指松开的 一瞬间触发
+    // input.onkeyup = function(e){
+    //     console.log('键盘弹起',e)
+    // }
+
+    // 获取反选按钮 和 table  表格元素
+    // const button = document.getElementById('button')
+    // const table = document.getElementById('table');
+    // console.log(table);
+    // let checkboxs = table.getElementsByTagName('input');
+    // console.log(checkboxs);
+    // // 点击第一个全选按钮
+    // checkboxs[0].onclick = function () {
+    //     // 判断 点击的是不是全选按钮
+    //     // checkbox 全部选中
+    //     for (let i = 1; i < checkboxs.length; i++) {
+    //         checkboxs[i].checked = this.checked;
+    //     }
+    // }
+    // for (let i = 1; i < checkboxs.length; i++) {
+    //     checkboxs[i].onclick = clickCheckbox;
+    // }
+    // // 点击反选按钮
+    // button.onclick = function () {
+    //     for (let i = 1; i < checkboxs.length; i++) {
+    //         // 循环所有的单选按钮   让他们的checked 取反
+    //         checkboxs[i].checked = !checkboxs[i].checked;
+    //     };
+    //     clickCheckbox()
+    // };
+    // // 这个函数的实际意义 就是判断所有的单选框有没有被全部选中
+    // function clickCheckbox(){
+    //         // 设置一个开关  假设所有的单选按钮都是被选中状态
+    //         let switchAll = true;
+    //         for (let i = 1; i < checkboxs.length; i++) {
+    //             // 当点击单选按钮的时候  循环所有的单选按钮  如果有一个
+    //             // 单选按钮的值没有被选中 false  那么就设置开关  switchAll的值为false;
+    //             //  如果单选按钮的值都为true if 语句不执行 switchAll的值就为true
+    //             if(!checkboxs[i].checked){
+    //                 switchAll = false;
+    //             }
+    //         };
+    //         // 最后将switchAll的值赋值给全选按钮
+    //         checkboxs[0].checked = switchAll;
+    // }
+
+
+</script>
+
 </html>

@@ -1,0 +1,12 @@
+{
+    "state": 0,
+    "result": {
+        "code":"200",
+        "msg":"success",
+        "token":"12346789",
+        "user":{
+            "id":"098765432",
+            "nickName":"刘月"
+        }
+    }
+}
