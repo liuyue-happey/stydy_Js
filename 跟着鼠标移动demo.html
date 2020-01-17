@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    img {
+        width: 100px;
+        height: 100px;
+    }
+    body{
+        height: 2000px;
+    }
+    * {
+        padding: 0%;
+        margin: 0%;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="./img/img.jpg" style="position: absolute;" alt="" id="img">
+    <div style="width: 100px; height: 100px; background-color: red;margin-top: 350px;margin-left: 100px;"></div>
+    <script>
+        const img = document.getElementById('img');
+        document.onclick = function (e) {
+            console.log(e);
+            // img.style.left = e.x + 'px';
+            // img.style.top = e.y + 'px';
+        }
+        document.onmousemove = function (e) {
+            // console.log(e);
+            // e.x  获取的是页面可视区域距离事件触发的 X轴的距离
+            // e.y 获取的是页面可视区域距离事件触发的  Y轴的距Y离
+            // img.style.left = e.x - 50 + 'px';
+            // img.style.top = e.y - 50 + 'px';
+            // e.pageX 获取的是 document顶端距离到事件触发时的X轴距离 包括浏览器滚动出去的距离
+            // e.pageY 获取的是 document顶端距离到事件触发时的Y轴距离 包括浏览器滚动出去的距离
+            img.style.left = e.pageX - 50 + 'px';
+            img.style.top = e.pageY - 50 + 'px';
+        }
+    </script>
+</body>
+
+</html>

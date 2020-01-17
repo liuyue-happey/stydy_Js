@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border-radius: 5px;
+        margin-top: 30px;
+        position: absolute;
+    }
+</style>
+
+<body>
+    <div id="div"></div>
+    <script>
+        const div = document.getElementById('div')
+        // setInterval    间隔一段时间之后  执行的函数 体    重复执行
+        // setTimeout   间隔一段时间之后  执行函数图  只执行一次
+        let setId = setInterval(() => {
+            // div.style.left = '30px';
+            if (div.offsetLeft >= 500) {
+                clearInterval(setId);
+                div.style.left = '500px';
+                console.log(div.style.left)
+                return
+            }
+            div.style.left = div.offsetLeft + 30 + 'px';
+            console.log(div.style.left)
+        }, 30);
+
+    </script>
+</body>
+
+</html>

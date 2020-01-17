@@ -66,18 +66,57 @@
     //     e.preventDefault()  //阻止元素的默认行为的
     // };
     // 事件冒泡
-    one.onclick = function () {
-        console.log('我是外层的div');
-    };
-    two.onclick = function (e) {
-        console.log('我是中间的div');
-        // 阻止事件冒泡
-    };
-    three.onclick = function (e) {
-        console.log('我是内层的div');
-        // 阻止事件冒泡
-        e.stopPropagation();
-    };
+    // one.onclick = function () {
+    //     console.log('我是外层的div');
+    // };
+    // two.onclick = function (e) {
+    //     console.log('我是中间的div');
+    //     // 阻止事件冒泡
+    // };
+    // three.onclick = function (e) {
+    //     console.log('我是内层的div');
+    //     // 阻止事件冒泡
+    //     // e.stopPropagation();
+    // };
+    // 事件的三个阶段  1 捕获阶段  2 事件触发  3冒泡阶段
+    let arr = [one, two, three];
+    // for (let i = 0; i<arr.length; i++) {
+    //     arr[i].addEventListener('click',function(){
+    //         console.log(this.id)
+    //     })
+    // };
+    // for (let i = 0; i<arr.length; i++) {
+    //     arr[i].addEventListener('click',function(){
+    //         console.log(this.id)
+    //     },false)
+    // }
+
+    // one.addEventListener('click',function(){
+    //     console.log(this.id);
+    // },false)
+    // two.addEventListener('click',function(){
+    //     console.log(this.id);
+    // },false)
+    // three.addEventListener('click',function(){
+    //     console.log(this.id);
+    // },false)
+
+    // one.addEventListener('click',function(){
+    //     console.log(this.id);
+    // },true)
+    // two.addEventListener('click',function(){
+    //     console.log(this.id);
+    // },true)
+    // three.addEventListener('click',function(){
+    //     console.log(this.id);
+    // },true);
+
+    
+    // three.addEventListener('click',function(){
+    //     console.log(this.id);
+    // },{once:true});
+    
+
 </script>
 
 </html>

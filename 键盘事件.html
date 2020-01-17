@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <script>
+        const input = document.getElementById('input');
+        // 键盘事件  onkeydown onkeyup onkeypress
+        // onkeydown  键盘按下的时候触发  所有按键都能捕捉到
+        input.onkeydown = function(e){
+            console.log('onkeydown');
+            console.log(e)
+        } 
+        // onkeypress键盘按下的时候触发  但是 当按下 功能键 ctrl tab esc 的时候 事件并不能被触发
+        input.onkeypress = function(e){
+            console.log('onkeypress')
+        }
+        // onkeyup 键盘弹起的时候触发
+        input.onkeyup = function(e){
+            console.log('onkeyup')
+        }
+    </script>
+</body>
+</html>
