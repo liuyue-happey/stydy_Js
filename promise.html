@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 函数表达式
+        // promise    解决嵌套的回调函数  深层的异步嵌套
+        // 三种状态  pedding 正在执行中     执行成功的回调     reject 执行失败的回调
+        // new Promise()  有两个参数  第一个是执行成功的  第二个是执行失败的
+        function getJson(code) {
+            return new Promise((resolve, reject) => {
+                if (code == 200) {
+                    resolve({id:123});
+                }else{
+                    reject('请求失败了');
+                }
+            })
+        };
+        getJson(200).then(res=>{
+            console.log(res);
+        }).catch(err=>{
+            console.log(err);
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
